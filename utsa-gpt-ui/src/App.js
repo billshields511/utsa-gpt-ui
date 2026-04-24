@@ -47,7 +47,7 @@ function App() {
       const response = await fetch('http://localhost:8000/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: inputValue })
+        body: JSON.stringify({ question: inputValue })
       });
 
       if (!response.ok) throw new Error(`Server error: ${response.status}`);
