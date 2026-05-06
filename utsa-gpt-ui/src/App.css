@@ -1,31 +1,246 @@
 .container {
   display: flex;
   height: 100vh;
+  font-family: Arial, sans-serif; /* Global font for the app . we can change according to our preference */
 }
 
+/* Dark theme styles */
+.container.dark {
+  background-color: #08090d;
+  color: #f5f5f5;
+}
+
+.container.dark .sidebar {
+  background: linear-gradient(180deg, #09090d, #161018);
+  border-right: 1px solid rgba(255, 40, 40, 0.25);
+}
+
+.container.dark .main-content{
+  background-color: #0c0d12;
+}
+
+.container.dark .chat-header,
+.container.dark .chat-input {
+  background-color: #111217;
+  border-color: rgba(255, 40, 40, 0.25);
+}
+
+.container.dark .chat-window {
+  background: radial-gradient(circle at to, #1a0d12, #08090d 55%);
+}
+
+.container.dark .bot-message{
+  background-color: #15161d;
+  border: 1px solid rgba(255, 40, 40, 0.25);
+  color: #f1f1f1;
+}
+
+.container.dark .chat-input input{
+  background-color: #181920;
+  border: 1px solid rgba(255, 40, 40, 0.35);
+  color: white;
+}
+
+/* Light theme styles */
+.container.light{
+  background-color: #f8f3f3;
+  color: #171717;  
+}
+
+.container.light .sidebar{
+  background: #fff;
+  border-right: 1px solid #e5c6c6;
+  color: #171717;
+}
+
+.container.light .main-content{
+  background-color: #fff7f7;
+}
+
+.container.light .chat-header,
+.container.light .chat-input{
+  background-color: #fff;
+  border-color: #e5c6c6;
+}
+
+.container.light .chat-window{
+  background: linear-gradient(180deg, #fff7f7, #f3e5e5);
+}
+
+.container.light .bot-message{
+  background-color: white;
+  border: 1px solid #d6bcbc;
+  color: #222;
+}
+
+.container.light .chat-input input{
+  background-color: #fff;
+  border: 1px solid #d6bcbc;
+  color: #222;
+}
+
+
+
+.container.light .conversation-item {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #1f1f1f;
+  border: 1px solid rgba(185, 28, 28, 0.25);
+}
+
+.container.light .conversation-title {
+  color: #1f1f1f;
+}
+
+.container.light .conversation-item:hover {
+  background-color: rgba(255, 59, 59, 0.12);
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.25);
+}
+
+.container.light .active-conversation {
+  background-color: rgba(239, 68, 68, 0.22);
+  border-color: #dc2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.35);
+}
+
+.container.light .options-btn {
+  background-color: white;
+  color: #b91c1c;
+  border: 1px solid rgba(185, 28, 28, 0.4);
+}
+
+.container.light .options-btn:hover {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+}
+
+.container.light .conversation-dropdown {
+  background-color: white;
+  border: 1px solid rgba(185, 28, 28, 0.35);
+  box-shadow: 0 0 14px rgba(185, 28, 28, 0.25);
+}
+
+.container.light .conversation-dropdown button {
+  color: #1f1f1f;
+}
+
+.container.light .conversation-dropdown button:hover {
+  background-color: #fee2e2;
+}
+
+
+
+
+
+
+
+/* light style for the send button 
+.container.light .chat-input button {
+  background: linear-gradient(135deg, #dc2626, #ff6b6b);
+  color: white;
+  border: 1px solid #dc2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.35);
+}
+
+.container.light .chat-input button:hover {
+  background: linear-gradient(135deg, #b91c1c, #ff4d4d);
+  box-shadow: 0 0 14px rgba(220, 38, 38, 0.55);
+}
+
+*/
+
+/* SIDEBAR STYLES */
 .sidebar {
   width: 250px;
-  background-color: #202123;
+  /* background-color: #202123; */
   color: white;
   padding: 20px;
 }
+
+/* sidebar p styling */
+.sidebar p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+/* sidebar button styling */
+.sidebar button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  background-color: #b91c1c;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* sidebar button hover effect */
+.sidebar button:hover {
+  background-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.7)  ;
+}
+
 
 .main-content {
   flex: 1;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  /* margin-top: 0; */
 }
 
 .chat-header {
-  padding: 10px 20px;
-  border-bottom: 1px solid #e7e5d6;
-  text-align: center;
-  background: #e7e5d6
+  padding: 16px 20px;
+  border-bottom: 1px solid /* #e7e5d6 */;
+  /* text-align: center; 
+  background: #e7e5d6; */
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
+
+/* chat header h1 styling */
+.chat-header h1 {
+  margin: 0;
+  color: #ff3b3b;
+  text-shadow: 0 0 12px rgba(255, 59, 59, 0.75);
+  letter-spacing: 1px;
+
+  line-height: 42px; /*added changed recent */
+}
+
+/* theme toggle button on left styling */
+.theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  height:38px;
+  width: 38px;
+  background-color: #1b1c22;
+  border: 1px solid rgba(255, 59, 59, 0.5);
+  color: #ff3b3b; /* added */
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 59, 59, 0.85);
+
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.theme-toggle .hover{
+  box-shadow: 0 0 18px rgba(255, 59, 59 , 0.85);
+
+}
+
 
 .chat-window {
   padding: 20px;
-  background-color: #e7e1d6;
+  /* background-color: #e7e1d6; */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -34,7 +249,7 @@
 
 .chat-input {
   padding: 20px;
-  background: #e7e5d6;
+  /* background: #e7e5d6; */
   border-top: 1px solid #e7e5d6;
   display: flex;
   gap: 10px;
@@ -42,44 +257,245 @@
 
 .chat-input input {
   flex: 1;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  outline: none; /* changed */
+}
+
+/* added focus state for the input field */
+.chat-input input:focus{
+  border-color: #ff3b3b;
+  box-shadow: 0 0 10px rgba(255, 59, 59, 0.45);
 }
 
 .chat-input button {
-  padding: 12px 20px;
-  border: none;
-  background-color: #10a37f;
+  padding: 12px 22px;
+  border: 1px solid rgba(255, 59, 59, 0.5);
+  background: linear-gradient(135deg, #7f1d1d, #ef4444);
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(255, 59, 59, 0.35);
 }
 
 .chat-input button:hover {
-  background-color: #0d8d6d;
+  background: linear-gradient(135deg, #991b1b, #ff4d4d);
+  box-shadow: 0 0 16px rgba(255, 59, 59, 0.75);
 }
+
+.chat-input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 
 .message {
   max-width: 70%;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 15px;
+  line-height: 1.4; /* added */
 }
+
+/* added margin to the message paragraphs for better spacing */
+.message p {
+  margin: 0;
+}
+
 
 .user-message {
   align-self: flex-end;
-  background-color: #10a37f;
+  background: linear-gradient(135deg, #7f1d1d, #ef4444);
   color: white;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.45);
 }
 
 .bot-message {
   align-self: flex-start;
+  /*
   background-color: white;
   border: 1px solid #ddd;
-  color: #333;
+  color: #333; */
 }
 
 .placeholder {
-  color: #777;
+  color: #999;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.sources{
+  margin-top: 10px;
+  padding: 12px;
+  opacity: 0.8;
+}
+
+.sources ul{
+  margin: 5px 0 0;
+  padding-left: 18px;
+}
+
+.error{
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* WELCOME GREETING MESSAGE */
+.welcome-message {
+  margin: auto;
+  text-align: center;
+  color: #ff3b3b;
+  text-shadow: 0 0 12px rgba(255, 59, 59, 0.45);
+}
+
+.welcome-message h2{
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.welcome-message p{
+  font-size: 16;
+  color: #aaa;
+}
+
+
+
+/* for deleting convo part */
+.conversation-list {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* Only shows scrollbar when needed */
+  overflow-y: auto;
+  overflow-x: visible;
+
+  max-height: 48vh;
+  padding-right: 6px;
+}
+/* scrollbar styling */
+.conversation-item {
+  width: 90%;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 10px 0 12px;
+
+  border: 1px solid rgba(255, 59, 59, 0.25);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  position: relative;
+  overflow: visible;
+}
+/* conversation title styling */
+.conversation-title {
+  flex: 1;
+  min-width: 0;
+  max-width: 85%;
+
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.conversation-item:hover {
+  background-color: rgba(255, 59, 59, 0.18);
+  box-shadow: 0 0 10px rgba(255, 59, 59, 0.4);
+}
+
+.active-conversation {
+  background-color: rgba(239, 68, 68, 0.35);
+  border-color: #ef4444;
+  box-shadow: 0 0 12px rgba(255, 59, 59, 0.5);
+}
+/* Wrapper for the 3-dot menu to position it properly */
+.conversation-menu-wrapper {
+  position: relative;
+  width: 30px;
+  height: 100px;
+  flex-shrink: 0;
+  top: -8px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3-dot button hidden until hover */
+.options-btn {
+  opacity: 0;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid rgba(255, 59, 59, 0.45);
+  background-color: rgba(15, 15, 20, 0.95);
+  color: #ffb4b4;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  line-height: 1;
+}
+
+/* Show the 3-dot button only when row is hovered or menu is open */
+.conversation-item:hover .options-btn,
+.conversation-menu-wrapper:focus-within .options-btn {
+  opacity: 1;
+}
+
+.options-btn:hover {
+  background-color: rgba(255, 59, 59, 0.25);
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 59, 59, 0.7);
+}
+
+/* Dropdown popup */
+.conversation-dropdown {
+  position: fixed;
+  width: 125px;
+  background-color: #16171d;
+  border: 1px solid rgba(255, 59, 59, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 0 18px rgba(255, 59, 59, 0.45);
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.conversation-dropdown button {
+  width: 100%;
+  padding: 7px 9px;
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.conversation-dropdown button:first-child {
+  border-bottom: 1px solid rgba(255, 59, 59, 0.2);
+}
+
+.conversation-dropdown button:hover {
+  background-color: rgba(255, 59, 59, 0.22);
 }
