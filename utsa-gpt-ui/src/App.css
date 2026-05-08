@@ -300,9 +300,49 @@
   line-height: 1.4; /* added */
 }
 
-/* added margin to the message paragraphs for better spacing */
-.message p {
+/* User bubbles: single paragraph */
+.user-message p {
   margin: 0;
+}
+
+/* Bot markdown body */
+.message .chat-message-body {
+  font-size: inherit;
+  line-height: 1.45;
+}
+
+.message .chat-message-body p {
+  margin: 0 0 0.65em 0;
+}
+
+.message .chat-message-body p:last-child {
+  margin-bottom: 0;
+}
+
+.message .chat-message-body ul,
+.message .chat-message-body ol {
+  margin: 0.35em 0 0.65em 0;
+  padding-left: 1.25em;
+}
+
+.message .chat-message-body li {
+  margin: 0.2em 0;
+}
+
+.message .chat-message-body li > p {
+  margin: 0;
+}
+
+.message .chat-message-body strong {
+  font-weight: 700;
+}
+
+.message .chat-message-body em {
+  font-style: italic;
+}
+
+.message .chat-message-body br {
+  line-height: inherit;
 }
 
 

@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import { ChatFormattedText } from './ChatFormattedText';
 
 const generateId = () => Date.now().toString();
 
@@ -342,7 +343,11 @@ function App() {
                     : 'message bot-message'
                 }
               >
-                <p>{message.content}</p>
+                {message.role === 'user' ? (
+                  <p>{message.content}</p>
+                ) : (
+                  <ChatFormattedText>{message.content}</ChatFormattedText>
+                )}
 
                 {message.role === 'bot' &&
                   message.sources &&
